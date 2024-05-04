@@ -6,4 +6,5 @@
 .vscode
 .clangd
 .cache
+gdb_command.log
 compile_commands.json
