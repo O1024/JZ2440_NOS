@@ -13,15 +13,14 @@
 
 int main()
 {
-    // GPF4/5/6引脚连接LED1/2/4，当输出低电平时LED点亮
-    GPFCON &= ~(GPF4_MASK | GPF5_MASK | GPF6_MASK);
-    GPFCON |= GPF4_OUT | GPF5_OUT | GPF6_OUT;
+    // GPF4/5/6引脚连接LED1/2/4，当输出低电平时LED点亮，同时作为输出引脚时关闭内部上拉
+    GPFUP |= (GPx4_UP | GPx5_UP | GPx6_UP);
+    GPFCON |= (GPx4_OUT | GPx5_OUT | GPx6_OUT);
 
-    // GPF0/2/GPG3引脚连接按键S2/S3/S4，当输入为低电平时表示按键按下
-    GPFCON &= ~(GPF0_MASK | GPF2_MASK);
-    GPFCON |= GPF0_IN | GPF2_IN;
-    GPGCON &= ~GPG3_MASK;
-    GPGCON |= GPG3_IN;
+    // GPF0/2引脚连接按键S2/S3，当输入为低电平时表示按键按下
+    GPFCON &= ((GPx0_IN | GPx2_IN) | GPxFULL_MASK);
+    // GPG3引脚连接按键S4，当输入为低电平时表示按键按下
+    GPGCON |= GPx3_IN;
 
     while (1) {
         if (GPFDAT & (1 << 0))   // bit[0]高电平表示S2没有按下

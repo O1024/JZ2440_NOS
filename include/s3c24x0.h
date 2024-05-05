@@ -58,28 +58,27 @@
 
 #define GSTATUS1 (*(volatile unsigned int*)0x560000B0)
 
-#define GPF0_IN (0 << (0 * 2))
-#define GPF2_IN (0 << (2 * 2))
-#define GPG3_IN (0 << (3 * 2))
+#define GPx0_IN   (0x00 << (0 * 2))
+#define GPx2_IN   (0x00 << (2 * 2))
+#define GPx3_IN   (0x00 << (3 * 2))
 
-#define GPF4_OUT (1 << (4 * 2))
-#define GPF5_OUT (1 << (5 * 2))
-#define GPF6_OUT (1 << (6 * 2))
+#define GPx4_OUT  (0x01 << (4 * 2))
+#define GPx5_OUT  (0x01 << (5 * 2))
+#define GPx6_OUT  (0x01 << (6 * 2))
 
-#define GPF0_MASK (3 << (0 * 2))
-#define GPF1_MASK (3 << (1 * 2))
-#define GPF2_MASK (3 << (2 * 2))
-#define GPF3_MASK (3 << (3 * 2))
-#define GPF4_MASK (3 << (4 * 2))
-#define GPF5_MASK (3 << (5 * 2))
-#define GPF6_MASK (3 << (6 * 2))
+#define GPx0_EINT (0x02 << (0 * 2))
+#define GPx1_EINT (0x02 << (1 * 2))
+#define GPx2_EINT (0x02 << (2 * 2))
+#define GPx3_EINT (0x02 << (3 * 2))
 
-#define GPG3_MASK (3 << (3 * 2))
+#define GPxFULL_MASK 0xffffffff
 
-/* S2,S3,S4对应GPF0、GPF2、GPG3 */
-#define GPF0_EINT (0x2 << (0 * 2))
-#define GPF2_EINT (0x2 << (2 * 2))
-#define GPG3_EINT (0x2 << (3 * 2))
+#define GPx0_UP   (1 << 0)
+#define GPx1_UP   (1 << 1)
+#define GPx2_UP   (1 << 2)
+#define GPx3_UP   (1 << 3)
+#define GPx4_UP   (1 << 4)
+#define GPx5_UP   (1 << 5)
+#define GPx6_UP   (1 << 6)
+#define GPx7_UP   (1 << 7)
 
-#define GPF0_MASK (3 << (0 * 2))
-#define GPF2_MASK (3 << (2 * 2))
