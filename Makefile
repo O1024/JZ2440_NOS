@@ -29,6 +29,9 @@ endif
 openocd:
 	$(Q)openocd -f configs/openocd_jz2440v3.cfg
 
+flash:
+	$(Q)$(GDB)
+
 debug:
 	$(Q)$(GDB) -tui -ex "focus cmd"
 
