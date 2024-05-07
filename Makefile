@@ -29,8 +29,8 @@ endif
 openocd:
 	$(Q)openocd -f configs/openocd_jz2440v3.cfg
 
-gdb:
-	$(Q)$(GDB)
+debug:
+	$(Q)$(GDB) -tui -ex "focus cmd"
 
 clean: 
 ifneq ($(T),)
