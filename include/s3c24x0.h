@@ -58,27 +58,50 @@
 
 #define GSTATUS1 (*(volatile unsigned int*)0x560000B0)
 
-#define GPx0_IN   (0x00 << (0 * 2))
-#define GPx2_IN   (0x00 << (2 * 2))
-#define GPx3_IN   (0x00 << (3 * 2))
+/*clock registers*/
+#define LOCKTIME (*(volatile unsigned long*)0x4c000000)
+#define MPLLCON (*(volatile unsigned long*)0x4c000004)
+#define UPLLCON (*(volatile unsigned long*)0x4c000008)
+#define CLKCON (*(volatile unsigned long*)0x4c00000c)
+#define CLKSLOW (*(volatile unsigned long*)0x4c000010)
+#define CLKDIVN (*(volatile unsigned long*)0x4c000014)
 
-#define GPx4_OUT  (0x01 << (4 * 2))
-#define GPx5_OUT  (0x01 << (5 * 2))
-#define GPx6_OUT  (0x01 << (6 * 2))
+/*PWM & Timer registers*/
+#define TCFG0 (*(volatile unsigned long*)0x51000000)
+#define TCFG1 (*(volatile unsigned long*)0x51000004)
+#define TCON (*(volatile unsigned long*)0x51000008)
+#define TCNTB0 (*(volatile unsigned long*)0x5100000c)
+#define TCMPB0 (*(volatile unsigned long*)0x51000010)
+#define TCNTO0 (*(volatile unsigned long*)0x51000014)
+#define TCNTB4 (*(volatile unsigned long*)0x5100003c)
+#define TCNTO4 (*(volatile unsigned long*)0x51000040)
+
+#define GPx0_IN (0x00 << (0 * 2))
+#define GPx2_IN (0x00 << (2 * 2))
+#define GPx3_IN (0x00 << (3 * 2))
+
+#define GPx4_OUT (0x01 << (4 * 2))
+#define GPx5_OUT (0x01 << (5 * 2))
+#define GPx6_OUT (0x01 << (6 * 2))
 
 #define GPx0_EINT (0x02 << (0 * 2))
 #define GPx1_EINT (0x02 << (1 * 2))
 #define GPx2_EINT (0x02 << (2 * 2))
 #define GPx3_EINT (0x02 << (3 * 2))
 
+#define INT_TIMER0 10
+#define INT_TIMER1 11
+#define INT_TIMER2 12
+#define INT_TIMER3 13
+#define INT_TIMER4 14
+
 #define GPxFULL_MASK 0xffffffff
 
-#define GPx0_UP   (1 << 0)
-#define GPx1_UP   (1 << 1)
-#define GPx2_UP   (1 << 2)
-#define GPx3_UP   (1 << 3)
-#define GPx4_UP   (1 << 4)
-#define GPx5_UP   (1 << 5)
-#define GPx6_UP   (1 << 6)
-#define GPx7_UP   (1 << 7)
-
+#define GPx0_UP_DISABLE (1 << 0)
+#define GPx1_UP_DISABLE (1 << 1)
+#define GPx2_UP_DISABLE (1 << 2)
+#define GPx3_UP_DISABLE (1 << 3)
+#define GPx4_UP_DISABLE (1 << 4)
+#define GPx5_UP_DISABLE (1 << 5)
+#define GPx6_UP_DISABLE (1 << 6)
+#define GPx7_UP_DISABLE (1 << 7)
