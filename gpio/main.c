@@ -14,7 +14,7 @@
 int main()
 {
     // GPF4/5/6引脚连接LED1/2/4，当输出低电平时LED点亮，同时作为输出引脚时关闭内部上拉
-    GPFUP |= (GPx4_UP | GPx5_UP | GPx6_UP);
+    GPFUP |= (GPx4_UP_DISABLE | GPx5_UP_DISABLE | GPx6_UP_DISABLE);
     GPFCON |= (GPx4_OUT | GPx5_OUT | GPx6_OUT);
 
     // GPF0/2引脚连接按键S2/S3，当输入为低电平时表示按键按下
