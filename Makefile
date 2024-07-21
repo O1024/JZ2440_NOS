@@ -33,7 +33,7 @@ upload:
 	$(Q)$(GDB) -ex "gdb_flash_bin $(T)" -ex "quit"
 
 run_gdb:
-	$(Q)$(GDB) -tui -ex "layout split" -ex "focus cmd"
+	$(Q)$(GDB) -ex "gdb_debug_flash_bin $(T)" -tui -ex "layout split" -ex "focus cmd"
 
 clean: 
 ifneq ($(T),)
