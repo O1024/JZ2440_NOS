@@ -14,7 +14,7 @@ export GDB=$(CROSS_COMPILE)gdb
 export CFLAGS = -march=armv4t -Wall -ggdb -I$(JZ2440_ROOT_PATH)/include
 export LDFLAGS = -Ttext 0x00000000 
 
-exclude_dirs := cross_compiler include tools
+exclude_dirs := cross_compiler include tools configs
 SUBDIR:=$(sort $(filter-out $(exclude_dirs),$(basename $(patsubst ./%,%,$(shell find . -maxdepth 1 -type d)))))
 
 all: 
@@ -26,14 +26,14 @@ else
 	done
 endif
 
-openocd:
+run_openocd:
 	$(Q)openocd -f configs/openocd_jz2440v3.cfg
 
-flash:
-	$(Q)$(GDB)
+upload:
+	$(Q)$(GDB) -ex "gdb_flash_bin $(T)" -ex "quit"
 
-debug:
-	$(Q)$(GDB) -tui -ex "focus cmd"
+run_gdb:
+	$(Q)$(GDB) -tui -ex "layout split" -ex "focus cmd"
 
 clean: 
 ifneq ($(T),)

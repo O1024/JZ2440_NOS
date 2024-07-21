@@ -1,5 +1,5 @@
 target extended-remote localhost:3333
-
+set confirm off
 printf "------------------------------------------\n"
 printf ">>> echo \"monitor h\" to get help message. \n"
 printf "------------------------------------------\n"
@@ -12,8 +12,7 @@ end
 define gdb_debug_flash_bin
     file $arg0/$arg0.elf
     load
-    b Reset
-    # b main
+    b _start
     c
 end
 
