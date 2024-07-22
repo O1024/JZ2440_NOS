@@ -11,9 +11,6 @@ export OBJCOPY=$(CROSS_COMPILE)objcopy
 export OBJDUMP=$(CROSS_COMPILE)objdump
 export GDB=$(CROSS_COMPILE)gdb
 
-export CFLAGS = -march=armv4t -Wall -ggdb -I$(JZ2440_ROOT_PATH)/include
-export LDFLAGS = -Ttext 0x00000000 
-
 exclude_dirs := cross_compiler include tools configs
 SUBDIR:=$(sort $(filter-out $(exclude_dirs),$(basename $(patsubst ./%,%,$(shell find . -maxdepth 1 -type d)))))
 

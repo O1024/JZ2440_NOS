@@ -1,7 +1,8 @@
 *.o
-*.dis
+*.dump
 *.bin
 *.elf
+*.map
 
 .vscode
 .clangd
