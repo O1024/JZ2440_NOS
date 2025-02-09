@@ -1,7 +1,7 @@
 /**
  * @file main.c
  * @author wenchen (wenchen.mails@gmail.com)
- * @brief LED跑马灯实验代码
+ * @brief LED跑马灯实验代码（gpio引脚输出功能）
  * @version 0.1
  * @date 2024-05-02
  *
