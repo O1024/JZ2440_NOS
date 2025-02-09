@@ -1,0 +1,13 @@
+*.o
+*.dump
+*.bin
+*.elf
+*.map
+
+.vscode
+.clangd
+.cache
+.bookmarks
+
+gdb_history.log
+compile_commands.json

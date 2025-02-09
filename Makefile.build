@@ -1,0 +1,11 @@
+%.o: %.c
+	$(Q)$(CC) $(CFLAGS) -c $< -o $@
+
+%.o: %.S
+	$(Q)$(CC) $(CFLAGS) -x assembler-with-cpp -c $< -o $@
+
+OUTPUT = $(shell pwd | xargs basename)
+
+export CFLAGS += -march=armv4t -mcpu=arm920t -ffunction-sections -fdata-sections -Wall -O0 -I$(JZ2440_ROOT_PATH)/include
+# export CFLAGS = -march=armv4t -mcpu=arm920t -ffunction-sections -fdata-sections -Wall -ggdb -I$(JZ2440_ROOT_PATH)/include
+export LDFLAGS = -march=armv4t -mcpu=arm920t -nostartfiles -Wl,--gc-sections,-Map=$(OUTPUT).map,-cref,-u,_start
